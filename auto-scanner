@@ -1,0 +1,176 @@
+#!/bin/bash
+while true 
+do
+	clear
+	sleep 1
+echo -e "\e[1;31m==========================================\e[0m"
+echo ""
+echo -e "      \e[1;31mAuto Network Scanner\e[0m"
+echo ""
+echo -e "       \e[0;36mVersion : 1.0\e[0m"
+echo -e "       \e[0;36mCredits : M0nt4 \e[0m"
+echo -e "       \e[0;36mEmail   : nassersillini30@gmail.com \e[0m"
+echo ""
+echo -e "\e[1;31m==========================================\e[0m"
+echo ""
+echo -e "     \e[0;33mSelect Your Option\e[0m    "
+
+echo ""
+	echo -e "\e[1;32m 1) Network Scanner\e[0m" "\e[0;34m( scan your local network )\e[0m"
+	echo -e "\e[1;32m 2) Website Scanner\e[0m" "\e[0;34m( Website scanner and live hosts )\e[0m"
+	echo -e "\e[1;32m 3) Exit \e[0m"
+	echo ""
+	echo -e "\e[0;33mSelect Your Option : \e[0m\c"
+	read answer
+		case "$answer" in
+
+			1)
+			if [ -f "/usr/sbin/netdiscover" ]; then
+				echo ""
+				echo -e "\e[0;33mType your range : ""\e[0;34mex 192.168.1.0/24\e[0m"": \e[0m\c"
+
+					read answer2
+
+				echo ""
+					echo -e "\e[0;32m 1) eth0 \e[0m"
+                    echo -e "\e[0;32m 2) wlan0 \e[0m"
+                    echo""
+                    echo -e "\e[0;33mChoose your interface : \e[0m\c"
+                 read interface
+
+               case "$interface" in 
+	            
+	            1)     	
+                       	sleep 1
+                       	echo ""
+						echo -e "\e[1;34mYour scan is about to start!\e[0m"
+						echo ""
+						sleep 2
+                       	netdiscover -i eth0 -r "$answer2" -P 
+                       	sleep 2;;
+
+	            2)      
+						sleep 1
+						echo ""
+						echo -e "\e[1;34mYour scan is about to start!\e[0m"
+						echo ""
+					   	sleep 3
+	     			   	netdiscover -i wlan0 -r "$answer2" -P 
+	     			   	sleep 2;;
+	     			  
+	     		*)  	echo -e "\e[0;31mInvalid option!\e[0m"
+						echo -e "\e[0;31mExiting...\e[0m"
+			    		sleep 2
+			    		exit ;;
+ 					                      	
+               esac
+               echo ""
+				echo -e "\e[1;34mYour scan completed!\e[0m" 
+				sleep 2
+				echo -e "\e[1;32mPress Return To Continue \c\e[0m"
+		        read input
+			    else 
+				echo -e "\e[0;31mYour Package 'netdiscover' not found!\e[0m "
+				sleep 2
+				echo -e "\e[0;33mDo Want To install netdiscover ? (y/n) : \c\e[0m"
+	            read answer3
+            case "$answer3" in
+            y)
+				echo "netdiscover is being installed!"
+				sleep 2
+                apt install netdiscover -y
+                echo ""
+                echo -e "\e[1;34mcompleted!\e[0m" 
+                sleep 2
+                echo "Going back to menu!"
+                sleep 2;;
+            n) 
+                echo "Going back to menu!"
+                sleep 2
+       
+            esac
+        
+			    fi;;
+
+				
+			2) 
+			if [ -f "/usr/bin/nmap" ]; then 
+				echo ""
+				echo -e "\e[0;32m    1) Simple Scan  \e[0m"
+				echo -e "\e[0;32m    2) Advanced Scan \e[0m"
+				echo -e "\e[0;32m    3) Back \e[0m"
+             	 
+				echo ""
+				echo -e "\e[0;33mSelect Your Option : \e[0m\c"
+				read answer4 
+				
+
+				case "$answer4" in
+				
+					1) 
+						echo ""
+						echo -e "\e[1;33m== Simple Scan Selected ==\e[0m"
+						echo ""
+						echo -e "Type your target IP adress : \c"
+						read answer5
+						nmap "$answer5"	
+						echo ""
+						sleep 1
+						echo -e "\e[1;34mYour scan completed\e[0m"
+						sleep 2
+						echo -e "\e[1;32mPress Return To Continue \c\e[0m"
+		        		read input;;
+					2) 	echo ""
+						echo -e "\e[1;33m== Advanced Scan Selected ==\e[0m"
+						echo ""
+						echo -e "Type your target IP adress : \c"
+						read answer6
+						nmap "$answer5"	
+						echo ""
+						echo -e "\e[1;34mYour scan completed!\e[0m"
+						sleep 2
+						echo -e "\e[1;32mPress Return To Continue \c\e[0m"
+		       			 read input;;
+		       		3) 
+		       			echo -e "\e[1;34mHold on...\e[0m"
+		       			sleep 1;;
+		       		*)	
+						
+						echo -e "\e[0;31mInvalid option! Please try again!\e[0m"
+						sleep 1;;
+					esac
+				else 
+					echo -e "\e[0;31mYour Package 'Nmap' not found!\e[0m "
+					sleep 2
+					echo -e "\e[0;33mDo Want To install nmap ? (y/n) : \c\e[0m"
+	            	read answer6
+            case "$answer6" in
+            y)
+				echo "Nmap is being installed!"
+				sleep 2
+                apt install nmap -y
+                echo ""
+                echo -e "\e[1;34mcompleted!\e[0m"  
+                sleep 2
+                echo "Going back to menu!"
+                sleep 2;;
+            n) 
+                echo "Going back to menu!"
+                sleep 2
+       
+            esac
+        
+				fi;;
+
+			3)  
+				echo -e "\e[0;31mExiting...\e[0m"
+			    sleep 2
+			    clear
+			    exit ;;
+			*)
+           
+				echo -e "\e[0;31mInvalid option! Please try again!\e[0m"
+				sleep 2;;			
+		esac
+		
+done
