@@ -16,6 +16,5 @@ Auto-Scanner used to scan live hots and websites !
 Enjoy !
 # Screenshots & Videos 
 ![screenshot_20180214_165120](https://user-images.githubusercontent.com/17936240/36214899-e255b38c-11aa-11e8-818d-343c23de1013.png)
-![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/yeEShHxw1KI/0.jpg)](https://youtu.be/yeEShHxw1KI)
-[linkname](https://youtu.be/yeEShHxw1KI)
+The Video : https://youtu.be/yeEShHxw1KI
 
