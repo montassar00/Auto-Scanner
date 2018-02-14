@@ -1,5 +1,10 @@
-# Auto-Scanner
+# Decription
+
 Auto-Scanner used to scan live hots and websites !
+# Requirement
+
+* Nmap 
+* Netdiscover
 
 # Installation
 
