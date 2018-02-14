@@ -3,10 +3,10 @@ Auto-Scanner used to scan live hots and websites !
 
 # Installation
 
-git clone https://github.com/montassar00/Auto-Scanner
-cd Auto-Scanner
-chmod a+x install.sh
-./install.sh
+* git clone https://github.com/montassar00/Auto-Scanner
+* cd Auto-Scanner
+* chmod a+x install.sh
+* ./install.sh
 
 Enjoy !
 # Screenshots
